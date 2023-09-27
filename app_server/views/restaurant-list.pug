@@ -1,0 +1,40 @@
+extends layout
+
+mixin outRating(rating)
+    - for (let i = 1; i <= rating; i++)
+        b ⭐
+
+block content
+    header.bg-primary.text-white.text-center.py-5
+        h1 Popular Restaurants at 
+            span#location-name
+    .row
+        .col-12.card.rest-container
+            .row
+                each restaurant in restaurants
+                    div(class=restaurant.class, onclick=`location.href='/restaurant-info?param1=${restaurant.resnum}'`).col-4.card.rest-card
+                        img(src=`${restaurant.imgSrc}`)
+                        h4= restaurant.title
+                        p.rating
+                            +outRating(restaurant.rating)
+
+    script.
+        const urlParams = new URLSearchParams(window.location.search);
+        const param1 = urlParams.get("param1");
+        document.getElementById('location-name').textContent = `${param1}`;
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get all elements with a certain class name
+            var elementsToNotDisplay = document.getElementsByClassName("restaurant");
+            var elementsToDisplay = document.getElementsByClassName(`${param1}`);
+
+            // Hide all elements with that class name
+            for (var i = 0; i < elementsToNotDisplay.length; i++) {
+                elementsToNotDisplay[i].style.display = "none";
+            }
+
+            // Show the specific elements you want to display
+            // For example, to show the first element with the class
+            for (var i = 0; i < elementsToDisplay.length; i++) {
+                elementsToDisplay[i].style.display = "flex";
+            }
+        });

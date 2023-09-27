@@ -1,0 +1,86 @@
+extends layout
+
+block content
+    header.rest-head.bg-primary.text-white.text-center.py-5
+        h1.display-4= restaurants[`${resnum}`].title
+        p.lead Fine Dining Restaurant
+
+    // Navigation Menu
+    nav.rest-page-nav
+        ul
+            li.nav-item
+                a(href='#popular-food') Popular Food
+            li.nav-item
+                a(href='#ratings') Ratings
+            li.nav-item
+                a(href='#reviews') Reviews
+            li.nav-item
+                a(href='#photos') Photos
+            li.nav-item
+                a(href='#contact') Contact
+            li.nav-item
+                a(href='#location') Location
+
+    // Popular Food Section
+    h2.food-header Popular Food
+    section#popular-food
+        each item in restaurants[`${resnum}`].popfoods
+            .food-item
+                img(src=`${item.imgSrc}`)
+                h3= item.name
+                p=item.desc
+
+    // Ratings Section
+    section#ratings
+      h2 Ratings
+      p Taking immense pride in our commitment to excellence:
+      ul
+        li
+          strong TripAdvisor:
+          |  ⭐⭐⭐⭐⭐ (5/5 stars)
+        li
+          strong Yelp:
+          |  ⭐⭐⭐⭐⭐ (5/5 stars)
+        li
+          strong Google Reviews:
+          |  ⭐⭐⭐⭐⭐ (5/5 stars)
+
+    // Reviews Section
+    section#reviews
+      h2 Reviews
+      .review
+        p "#{restaurants[`${resnum}`].title} is pure culinary magic. Every dish is a masterpiece!" - Sarah W.
+      .review
+        p "The flavors here are unparalleled. The salmon with citrus glaze is my all-time favorite!" - David R.
+      .review
+        p "From the moment you step in, you're transported to a world of elegance and flavor. The #{restaurants[`${resnum}`].popfoods[1].name} is divine!" - Emily P.
+
+    // Photos Section
+    section#photos
+      h2 Photos
+      .photos-content
+        .photo
+          img(src=`${restaurants[`${resnum}`].photo1}`, alt='Interior', width='300', height='200')
+        .photo
+          img(src=`${restaurants[`${resnum}`].photo2}`, alt='Dishes', width='300', height='200')
+
+    // Contact Info Section
+    section#contact
+      h2 Contact Us
+      p If you have any questions or would like to make a reservation, please don't hesitate to contact us:
+      address
+        p
+          | Email: 
+          a(href=`mailto:info@${restaurants[`${resnum}`].title}.com`) info@#{restaurants[`${resnum}`].title}.com
+        p
+          | Phone: 
+          a(href='tel:+1234567890') +1 (234) 567-890
+
+    // Location Section
+    section#location
+      h2 Location
+      p We are located at:
+      address
+        p= restaurants[`${resnum}`].title
+        p 123 Fine Dining Street
+        p City, State ZIP Code
