@@ -18,7 +18,7 @@ const restaurantList = (req, res) => {
             rating: 4,
             class: "Banjara-Hills restaurant",
             resnum: 1,
-            imgSrc: '/images/blue.jpeg'
+            imgSrc: '/images/bluefox.jpeg'
         }, {
             title: "Chef's Spot",
             rating: 5,
@@ -26,7 +26,7 @@ const restaurantList = (req, res) => {
             resnum: 2,
             imgSrc: '/images/chefs-spot.jpeg'
         }, {
-            title: "Savory Bites",
+            title: "Mirosa Cafe",
             rating: 4,
             class: "Mehdipatnam restaurant",
             resnum: 3,
@@ -37,7 +37,7 @@ const restaurantList = (req, res) => {
             rating: 4,
             class: "Mehdipatnam restaurant",
             resnum: 4,
-            imgSrc: '/images/mir.webp'
+            imgSrc: '/images/gardengreen.jpeg'
         },
         {
             title: "Tasty Delights",
@@ -92,8 +92,8 @@ const restaurantInfo = (req, res) => {
                 title: "Minerva",
                 rating: 3,
                 
-                photo1: '/images/oceanview.jpeg',
-                photo2: '/images/oceanview1.jpeg',
+                photo1: '/images/min1.avif',
+                photo2: '/images/min.jpeg',
                 popfoods: [
                     {
                         name: "Truffle Risotto",
@@ -115,8 +115,8 @@ const restaurantInfo = (req, res) => {
                 title: "Blue Fox",
                 rating: 4,
                 
-                photo1: '/images/oceanview.jpeg',
-                photo2: '/images/oceanview1.jpeg',
+                photo1: '/images/blue.jpeg',
+                photo2: '/images/blue1.jpeg',
                 popfoods: [
                     {
                       name: "Margherita Pizza",
@@ -138,8 +138,8 @@ const restaurantInfo = (req, res) => {
             }, {
                 title: "Chef's Spot",
                 rating: 5,
-                photo1: '/images/oceanview.jpeg',
-                photo2: '/images/oceanview1.jpeg',
+                photo1: '/images/chef2.jpeg',
+                photo2: '/images/c3.jpeg',
                 popfoods: [
                     {
                       name: "Sashimi Platter",
@@ -159,10 +159,10 @@ const restaurantInfo = (req, res) => {
                     // Add more food items for this restaurant
                   ]
             }, {
-                title: "Savory Bites",
+                title: "Mirosa Cafe",
                 rating: 4,
-                photo1: '/images/oceanview.jpeg',
-                photo2: '/images/oceanview1.jpeg',
+                photo1: '/images/mir.jpeg',
+                photo2: '/images/mir1.jpeg',
                 popfoods: [
                     {
                       name: "Miso Soup",
@@ -183,8 +183,8 @@ const restaurantInfo = (req, res) => {
             {
                 title: "Green Garden Grill",
                 rating: 4,
-                photo1: '/images/oceanview.jpeg',
-                photo2: '/images/oceanview1.jpeg',
+                photo1: '/images/garden.jpeg',
+                photo2: '/images/green.jpeg',
                 popfoods: [
                     {
                         name: "Rainbow Roll",
@@ -205,7 +205,7 @@ const restaurantInfo = (req, res) => {
             {
                 title: "Tasty Delights",
                 rating: 3,
-                photo1: '/images/oceanview.jpeg',
+                photo1: '/images/cafemocha.jpeg',
                 photo2: '/images/oceanview1.jpeg',
                 popfoods: [
                     {
@@ -227,8 +227,8 @@ const restaurantInfo = (req, res) => {
             {
                 title: "Spice Fusion",
                 rating: 4,
-                photo1: '/images/oceanview.jpeg',
-                photo2: '/images/oceanview1.jpeg',
+                photo1: '/images/spice.jpeg',
+                photo2: '/images/spice-fusion.jpeg',
                 popfoods: [      {
                     name: "Lobster Bisque",
                     desc: "Rich and creamy lobster soup, garnished with chives and a touch of brandy.",
@@ -249,8 +249,8 @@ const restaurantInfo = (req, res) => {
             {
                 title: "Cafe Mocha",
                 rating: 4,
-                photo1: '/images/oceanview.jpeg',
-                photo2: '/images/oceanview1.jpeg',
+                photo1: '/images/cafe-mocha.jpeg',
+                photo2: '/images/cafemocha1.jpeg',
                 popfoods: [
                   {
                     name: "Cappuccino",
