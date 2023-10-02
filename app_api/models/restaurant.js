@@ -12,8 +12,8 @@ const reviewSchema = new mongoose.Schema({
 });
 const restaurantSchema = new mongoose.Schema({
     
-    popfoods:[popfoodsSchema]
-    review:[reviewSchema]
+    popfoods:[popfoodsSchema],
+    review:[reviewSchema],
 
         title: String,
         address:String,
@@ -21,11 +21,11 @@ const restaurantSchema = new mongoose.Schema({
    
         
         imgSrc:String,
-        rating: Number
+        rating: Number,
         
         photo1:String,
         photo2:String,
-        desc:String,
+        desc:String
     });
 mongoose.model('Restaurant', restaurantSchema);
 

@@ -4,7 +4,7 @@ const express = require('express');
 
 async function restaurantsAll(req, res) {
     try {
-        const data = await Rest.find({class: ${req.query.param1} + 'restaurant'})
+        const data = await Rest.find({class: `${req.query.param1}` + 'restaurant'})
             .then(function (restaurants) {
                 res.status(200).json(restaurants);
             })

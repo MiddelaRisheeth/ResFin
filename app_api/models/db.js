@@ -72,3 +72,4 @@ if (process.env.NODE_ENV === 'production')
     connectDB();
 else
     connect();
+require('./restaurant');
