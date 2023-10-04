@@ -8,24 +8,47 @@ block content
     header.bg-primary.text-white.text-center.py-5
         h1 Popular Restaurants at 
             span#location-name
+            
     .row
+        .col-md-6.mx-auto  <!-- Center the column horizontally -->
+            .input-group.mb-3
+                select.form-control#locationInput(onchange="restcheck()")
+                    option(value="Narayanguda") Narayanguda
+                    option(value="Himayath-Nagar") Himayath Nagar
+                    option(value="Jubilee-Hills") Jubilee Hills
+                    option(value="Banjara-Hills") Banjara Hills
+                    option(value="Mehdipatnam") Mehdipatnam
         .col-12.card.rest-container
             .row
                 each restaurant in restaurants
                     div(class=restaurant.class, onclick=`location.href='/restaurant-info?param1=${restaurant.resnum}'`).col-4.card.rest-card
                         img(src=`${restaurant.imgSrc}`)
                         h4= restaurant.title
+                            small= restaurant.veg
                         p.rating
                             +outRating(restaurant.rating)
 
     script.
-        const urlParams = new URLSearchParams(window.location.search);
-        const param1 = urlParams.get("param1");
-        document.getElementById('location-name').textContent = `${param1}`;
-        document.addEventListener("DOMContentLoaded", function () {
+        const queryString = window.location.search;
+        const searchParams = new URLSearchParams(queryString);
+        const param1 = searchParams.get('param1');
+        document.addEventListener("DOMContentLoaded", function() {
+        let elementsToDisplay = document.getElementsByClassName(param1);
+        var elementsToNotDisplay = document.getElementsByClassName("restaurant");
+        for (var i = 0; i < elementsToNotDisplay.length; i++) {
+            elementsToNotDisplay[i].style.display = "none";
+        }
+        for (var i = 0; i < elementsToDisplay.length; i++) {
+            elementsToDisplay[i].style.display = "flex";
+        }
+        });
+        
+        function restcheck() {
+            let locationName = document.getElementById('locationInput').value;
+
             // Get all elements with a certain class name
-            var elementsToNotDisplay = document.getElementsByClassName("restaurant");
-            var elementsToDisplay = document.getElementsByClassName(`${param1}`);
+            elementsToNotDisplay = document.getElementsByClassName("restaurant");
+            elementsToDisplay = document.getElementsByClassName(locationName);
 
             // Hide all elements with that class name
             for (var i = 0; i < elementsToNotDisplay.length; i++) {
@@ -37,4 +60,4 @@ block content
             for (var i = 0; i < elementsToDisplay.length; i++) {
                 elementsToDisplay[i].style.display = "flex";
             }
-        });
+        };

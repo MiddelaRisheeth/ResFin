@@ -7,73 +7,88 @@ const homelist = (req, res) => {
 const restaurantList = (req, res) => {
     res.render('restaurant-list', {
         title: 'Restaurant List',
-        restaurants: [{
+        restaurants: [
+          {
             title: "Minerva",
             rating: 3,
             class: "Banjara-Hills restaurant",
             resnum: 0,
-            imgSrc: '/images/minerva.jpeg'
-        }, {
+            imgSrc: '/images/minerva.jpeg',
+            veg: '🥬 Veg',
+          },
+          {
             title: "Blue Fox",
             rating: 4,
             class: "Banjara-Hills restaurant",
             resnum: 1,
-            imgSrc: '/images/bluefox.jpeg'
-        }, {
+            imgSrc: '/images/bluefox.jpeg',
+            veg: '🍗 Non Veg',
+          },
+          {
             title: "Chef's Spot",
             rating: 5,
             class: "Banjara-Hills restaurant",
             resnum: 2,
-            imgSrc: '/images/chefs-spot.jpeg'
-        }, {
+            imgSrc: '/images/chefs-spot.jpeg',
+            veg: '🥬 Veg',
+          },
+          {
             title: "Mirosa Cafe",
             rating: 4,
             class: "Mehdipatnam restaurant",
             resnum: 3,
-            imgSrc: '/images/mirosa.jpeg'
-        },
-        {
+            imgSrc: '/images/mirosa.jpeg',
+            veg: '🥬 Veg',
+          },
+          {
             title: "Green Garden Grill",
             rating: 4,
             class: "Mehdipatnam restaurant",
             resnum: 4,
-            imgSrc: '/images/gardengreen.jpeg'
-        },
-        {
+            imgSrc: '/images/gardengreen.jpeg',
+            veg: '🍗 Non Veg',
+          },
+          {
             title: "Tasty Delights",
             rating: 3,
             class: "Jubilee-Hills restaurant",
             resnum: 5,
-            imgSrc: '/images/haiking.webp'
-        },
-        {
+            imgSrc: '/images/haiking.webp',
+            veg: '🥬 Veg',
+          },
+          {
             title: "Spice Fusion",
             rating: 4,
             class: "Jubilee-Hills restaurant",
             resnum: 6,
-            imgSrc: '/images/spice-fusion.jpeg'
-        },
-        {
+            imgSrc: '/images/spice-fusion.jpeg',
+            veg: '🍗 Non Veg',
+          },
+          {
             title: "Cafe Mocha",
             rating: 4,
             class: "Narayanguda restaurant",
             resnum: 7,
-            imgSrc: '/images/c1.jpeg'
-        },
-        {
+            imgSrc: '/images/c1.jpeg',
+            veg: '🥬 Veg',
+          },
+          {
             title: "Ocean View Restaurant",
             rating: 4,
             class: "Himayath-Nagar restaurant",
             resnum: 8,
-            imgSrc: '/images/oceanview.jpeg'
-        },
-        {
+            imgSrc: '/images/oceanview.jpeg',
+            veg: '🍗 Non Veg',
+          },
+          {
             title: "Sunset Cafe",
             rating: 4,
             class: "Himayath-Nagar restaurant",
             resnum: 9,
-            imgSrc: '/images/sunset-cafe.jpeg'
-        }]
+            imgSrc: '/images/sunset-cafe.jpeg',
+            veg: '🥬 Veg',
+          }
+        ]
     })
 }
 

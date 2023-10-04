@@ -68,7 +68,9 @@ process.on('SIGTERM', () => {
     });
 });
 
-if (process.env.NODE_ENV === 'production')
-    connectDB();
-else
-    connect();
+//if (process.env.NODE_ENV === 'production')
+connectDB();
+//else
+//    connect();
+
+require('./restaurants');

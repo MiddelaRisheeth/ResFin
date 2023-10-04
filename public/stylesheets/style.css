@@ -229,3 +229,12 @@ footer {
 .rating {
     font-size: 20px;
 }
+
+small {
+    float: right;
+    border: 1px solid #dde;
+    margin: 5px;
+    padding: 3px;
+    font-size: 80%;
+    border-radius: 10%;
+}

@@ -6,7 +6,6 @@ var logger = require('morgan');
 
 var indexRouter = require('./app_server/routes/index');
 
-
 require('./app_api/models/db');
 
 var app = express();
