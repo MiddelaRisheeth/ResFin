@@ -5,6 +5,10 @@ body {
   padding: 0;
 }
 
+h1 {
+    text-shadow: 0 0 10px black;
+}
+
 a {
   color: #00B7FF;
 }
@@ -237,4 +241,14 @@ small {
     padding: 3px;
     font-size: 80%;
     border-radius: 10%;
+}
+
+.res-img {
+    max-width: 100%;
+    width: auto;
+    max-height: 85%;
+}
+
+.about-info {
+    font-size: 20px;
 }

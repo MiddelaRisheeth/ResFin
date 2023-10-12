@@ -7,6 +7,7 @@ const homelist = (req, res) => {
 const restaurantList = (req, res) => {
     res.render('restaurant-list', {
         title: 'Restaurant List',
+        locationName: req.query.param1,
         restaurants: [
           {
             title: "Minerva",
@@ -73,7 +74,7 @@ const restaurantList = (req, res) => {
             veg: '🥬 Veg',
           },
           {
-            title: "Ocean View Restaurant",
+            title: "Ocean View",
             rating: 4,
             class: "Himayath-Nagar restaurant",
             resnum: 8,
@@ -281,7 +282,7 @@ const restaurantInfo = (req, res) => {
                 ]
               },
               {
-                title: "Ocean View Restaurant",
+                title: "Ocean View",
                 rating: 4,
                 photo1: '/images/oceanview.jpeg',
                 photo2: '/images/oceanview1.jpeg',

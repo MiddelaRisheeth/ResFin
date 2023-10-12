@@ -7,22 +7,29 @@ mixin outRating(rating)
 block content
     header.bg-primary.text-white.text-center.py-5
         h1 Popular Restaurants at 
-            span#location-name
+            span #{locationName}
             
     .row
-        .col-md-6.mx-auto  <!-- Center the column horizontally -->
-            .input-group.mb-3
-                select.form-control#locationInput(onchange="restcheck()")
+        .col-12.col-md-6.mx-auto
+            .input-group.m-3
+                select.form-control.mx-1#locationInput(onchange="restcheck()" name="restaurant")
                     option(value="Narayanguda") Narayanguda
                     option(value="Himayath-Nagar") Himayath Nagar
                     option(value="Jubilee-Hills") Jubilee Hills
                     option(value="Banjara-Hills") Banjara Hills
                     option(value="Mehdipatnam") Mehdipatnam
+                .btn-group.btn-group-toggle#vegCheckbox(data-toggle="buttons" onchange="resetRest()")
+                    label.btn.btn-outline-dark.active(for="veg") ALL
+                        input(type="radio" id="vegCheckbox1" onchange="resetRest()" name="veg" autocomplete="off" value="ALL" checked)
+                    label.btn.btn-outline-success(for="veg" style="vertical-align: center;") VEG
+                        input(type="radio" id="vegCheckbox2" onchange="resetRest()" name="veg" autocomplete="off" value="VEG")
+                    label.btn.btn-outline-danger(for="veg" style="vertical-align: center;") NON VEG
+                        input(type="radio" id="vegCheckbox3" onchange="resetRest()" name="veg" autocomplete="off" value="NON VEG")
         .col-12.card.rest-container
             .row
                 each restaurant in restaurants
-                    div(class=restaurant.class, onclick=`location.href='/restaurant-info?param1=${restaurant.resnum}'`).col-4.card.rest-card
-                        img(src=`${restaurant.imgSrc}`)
+                    div(class=`${restaurant.class} ${restaurant.veg}`, onclick=`location.href='/restaurant-info?param1=${restaurant.resnum}'`).col-4.card.rest-card
+                        img.res-img.mx-auto(src=`${restaurant.imgSrc}`)
                         h4= restaurant.title
                             small= restaurant.veg
                         p.rating
@@ -32,32 +39,27 @@ block content
         const queryString = window.location.search;
         const searchParams = new URLSearchParams(queryString);
         const param1 = searchParams.get('param1');
-        document.addEventListener("DOMContentLoaded", function() {
-        let elementsToDisplay = document.getElementsByClassName(param1);
-        var elementsToNotDisplay = document.getElementsByClassName("restaurant");
-        for (var i = 0; i < elementsToNotDisplay.length; i++) {
-            elementsToNotDisplay[i].style.display = "none";
-        }
-        for (var i = 0; i < elementsToDisplay.length; i++) {
-            elementsToDisplay[i].style.display = "flex";
-        }
-        });
+        document.addEventListener("DOMContentLoaded", resetRest());
         
-        function restcheck() {
-            let locationName = document.getElementById('locationInput').value;
-
-            // Get all elements with a certain class name
-            elementsToNotDisplay = document.getElementsByClassName("restaurant");
-            elementsToDisplay = document.getElementsByClassName(locationName);
-
-            // Hide all elements with that class name
+        function resetRest() {
+            document.getElementById('locationInput').value = "#{locationName}";
+            let showVegOnly = document.querySelector('input[name="veg"]:checked').value;;
+            let elementsToDisplay = Array.from(document.getElementsByClassName(param1));
+            let elementsToNotDisplay = document.getElementsByClassName("restaurant");
+            let elementsNonVeg = Array.from(document.getElementsByClassName("Non"));
+            let elementsVeg = Array.from(document.getElementsByClassName("🥬"));
+            if(showVegOnly === "VEG")
+                elementsToDisplay = elementsToDisplay.filter(element => !elementsNonVeg.includes(element));
+            if(showVegOnly === "NON VEG")
+                elementsToDisplay = elementsToDisplay.filter(element => !elementsVeg.includes(element));
             for (var i = 0; i < elementsToNotDisplay.length; i++) {
                 elementsToNotDisplay[i].style.display = "none";
             }
-
-            // Show the specific elements you want to display
-            // For example, to show the first element with the class
             for (var i = 0; i < elementsToDisplay.length; i++) {
                 elementsToDisplay[i].style.display = "flex";
             }
+        }
+        
+        function restcheck() {
+            window.location.href = "/restaurant?param1=" + document.getElementById('locationInput').value;
         };
