@@ -28,7 +28,7 @@ block content
         .col-12.card.rest-container
             .row
                 each restaurant in restaurants
-                    div(class=`${restaurant.class} ${restaurant.veg}`, onclick=`location.href='/restaurant-info?param1=${restaurant.resnum}'`).col-4.card.rest-card
+                    div(class=`${restaurant.class} ${restaurant.veg}`, onclick=`location.href='/restaurant-info/${restaurant._id}'`).col-4.card.rest-card
                         img.res-img.mx-auto(src=`${restaurant.imgSrc}`)
                         h4= restaurant.title
                             small= restaurant.veg

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const popfoodsSchema = new mongoose.Schema({
     name: String,
     desc: String,
@@ -20,5 +21,6 @@ const restaurantSchema = new mongoose.Schema({
     desc:String,
     popfoods:[popfoodsSchema],
     review:[reviewSchema]
-    });
-module.exports = mongoose.model('Restaurant', restaurantSchema);
+});
+
+mongoose.model('Restaurant', restaurantSchema);

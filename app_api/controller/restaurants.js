@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const Rest = mongoose.model('../models/restaurants');
+const Rest = mongoose.model('Restaurant');
 const express = require('express');
 
 express().use(express.urlencoded({ extended: true }));
 
 async function restaurantsAll(req, res) {
     try {
-        const data = await Rest.find({class: `${req.query.param1}` + 'restaurant'})
+        const data = await Rest.find({})
             .then(function (restaurants) {
                 res.status(200).json(restaurants);
             })

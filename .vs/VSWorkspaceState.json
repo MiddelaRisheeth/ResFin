@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app_api",
+    "\\app_api\\controller",
+    "\\app_api\\routes",
+    "\\app_server",
+    "\\app_server\\controller",
+    "\\app_server\\routes",
+    "\\app_server\\views",
+    "\\public",
+    "\\public\\stylesheets"
   ],
+  "SelectedNode": "\\app_server\\views\\restaurant-info.pug",
   "PreviewInSolutionExplorer": false
 }

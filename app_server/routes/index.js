@@ -6,6 +6,6 @@ var ctrlLocations = require('../controller/index');
 router.get('/', ctrlLocations.homelist);
 router.get('/restaurant', ctrlLocations.restaurantList);
 router.get('/about/', ctrlLocations.about);
-router.get('/restaurant-info', ctrlLocations.restaurantInfo);
+router.get('/restaurant-info/:restaurantid', ctrlLocations.restaurantInfo);
 
 module.exports = router;

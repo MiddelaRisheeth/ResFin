@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 let dbURL = 'mongodb://127.0.0.1/RestaurantFinder';
 
 const connectDB = async () => {
-    dbURL = 'mongodb+srv://21eg106b37:risheeth@cluster0.f1n7gqj.mongodb.net/?retryWrites=true&w=majority';
+    dbURL = 'mongodb+srv://21eg106b37:risheeth@cluster0.f1n7gqj.mongodb.net/RestaurantFinder?retryWrites=true&w=majority';
     try {
         const conn = await mongoose.connect(dbURL);
         console.log(`MongoDB Connected Online: ${conn.connection.host}`);

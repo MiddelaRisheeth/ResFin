@@ -2,7 +2,7 @@ extends layout
 
 block content
     header.rest-head.bg-primary.text-white.text-center.py-5
-        h1.display-4= restaurants[`${resnum}`].title
+        h1.display-4= restaurant.title
         p.lead Fine Dining Restaurant
 
     // Navigation Menu
@@ -24,7 +24,7 @@ block content
     // Popular Food Section
     h2.food-header Popular Food
     section#popular-food
-        each item in restaurants[`${resnum}`].popfoods
+        each item in restaurant.popfoods
             .food-item
                 img(src=`${item.imgSrc}`)
                 h3= item.name
@@ -49,20 +49,20 @@ block content
     section#reviews
       h2 Reviews
       .review
-        p "#{restaurants[`${resnum}`].title} is pure culinary magic. Every dish is a masterpiece!" - Sarah W.
+        p "#{restaurant.title} is pure culinary magic. Every dish is a masterpiece!" - Sarah W.
       .review
         p "The flavors here are unparalleled. The salmon with citrus glaze is my all-time favorite!" - David R.
       .review
-        p "From the moment you step in, you're transported to a world of elegance and flavor. The #{restaurants[`${resnum}`].popfoods[1].name} is divine!" - Emily P.
+        p "From the moment you step in, you're transported to a world of elegance and flavor. The #{restaurant.popfoods[1].name} is divine!" - Emily P.
 
     // Photos Section
     section#photos
       h2 Photos
       .photos-content
         .photo
-          img(src=`${restaurants[`${resnum}`].photo1}`, alt='Interior', width='300', height='200')
+          img(src=`${restaurant.photo1}`, alt='Interior', width='300', height='200')
         .photo
-          img(src=`${restaurants[`${resnum}`].photo2}`, alt='Dishes', width='300', height='200')
+          img(src=`${restaurant.photo2}`, alt='Dishes', width='300', height='200')
 
     // Contact Info Section
     section#contact
@@ -71,7 +71,7 @@ block content
       address
         p
           | Email: 
-          a(href=`mailto:info@${restaurants[`${resnum}`].title}.com`) info@#{restaurants[`${resnum}`].title}.com
+          a(href=`mailto:info@${restaurant.title}.com`) info@#{restaurant.title}.com
         p
           | Phone: 
           a(href='tel:+1234567890') +1 (234) 567-890
@@ -81,6 +81,6 @@ block content
       h2 Location
       p We are located at:
       address
-        p= restaurants[`${resnum}`].title
+        p= restaurant.title
         p 123 Fine Dining Street
         p City, State ZIP Code
